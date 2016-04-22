@@ -1,0 +1,78 @@
+
+				<div class="sidebar" id="sidebar">
+					<script type="text/javascript">
+						try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+					</script>
+
+					<div class="sidebar-shortcuts" id="sidebar-shortcuts">
+						<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+							<button class="btn btn-success">
+								<i class="icon-signal"></i>
+							</button>
+
+							<button class="btn btn-info">
+								<i class="icon-pencil"></i>
+							</button>
+
+							<button class="btn btn-warning">
+								<i class="icon-group"></i>
+							</button>
+
+							<button class="btn btn-danger">
+								<i class="icon-cogs"></i>
+							</button>
+						</div>
+
+						<div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+							<span class="btn btn-success"></span>
+
+							<span class="btn btn-info"></span>
+
+							<span class="btn btn-warning"></span>
+
+							<span class="btn btn-danger"></span>
+						</div>
+					</div><!-- #sidebar-shortcuts -->
+                                        <ul class="nav nav-list">
+					<foreach name="MENU_LIST" item="v1" key="k1" >
+                                            <li id='{$k1}Nav' class='menubar'>
+                                                    <a href="#" class="dropdown-toggle">
+                                                            <i class="icon-desktop"></i>
+                                                            <span class="menu-text">{$v1.name}</span>
+                                                            <b class="arrow icon-angle-down"></b>
+                                                    </a>
+                                                    <ul class="nav submenu">
+                                                            <foreach name="v1.submenu" item="v2" key="k2">
+                                                            <li id='{$k1}Nav{$k2}' class='menubar'>
+                                                                <a  href="{$v2.url}" <neq name='v2.submenu' value=''> class="dropdown-toggle" </neq>>
+                                                                            <i class="icon-double-angle-right"></i>
+                                                                            <neq name='v2.submenu' value=''><b class="arrow icon-angle-down"></b></neq>
+                                                                            {$v2.name}
+                                                                </a>
+                                                                <neq name='v2.submenu' value=''>
+                                                                <ul class="submenu">
+                                                                            <foreach name="v2.submenu" item="v3" key="k3">
+                                                                                    <li id='{$k1}Nav{$k2}_{$k3}'>
+                                                                                            <a href="{$v3.url}">
+                                                                                                    <i class="icon-leaf"></i>
+                                                                                                    {$v3.name}
+                                                                                            </a>
+                                                                                    </li>
+                                                                                    </foreach>
+                                                                    </ul>
+                                                                    </neq>
+                                                            </li>
+                                                            </foreach>	
+                                                    </ul>
+                                            </li>
+					</foreach>
+					</ul><!-- /.nav-list -->
+
+					<div class="sidebar-collapse" id="sidebar-collapse">
+						<i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+					</div>
+
+					<script type="text/javascript">
+						try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+					</script>
+				</div>
